@@ -1,0 +1,23 @@
+{
+  "name": "merge-imgs",
+  "version": "1.0.0",
+  "description": "merge images",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mengxinssfd/merge-imgs.git"
+  },
+  "keywords": [
+    "merge",
+    "images"
+  ],
+  "author": "dyh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mengxinssfd/merge-imgs/issues"
+  },
+  "homepage": "https://github.com/mengxinssfd/merge-imgs#readme"
+}
