@@ -18,10 +18,11 @@
         mi.destroy();
 
         // 图片不支持toDataURL
-        await MergeImg.createWithBg(
+        const mi2 = await MergeImg.createWithBg(
             "https://www.ivywise.com/core/wp-content/uploads/2019/04/Tips-for-taking-the-TOEFL.jpeg",
             null
         )
+        mi2.ctx.canvas.style.display = "block";
     })()
 </script>
 </body>
