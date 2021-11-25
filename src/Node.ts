@@ -1,6 +1,6 @@
 import {Style, ComputedStyleExclude} from "./types";
 import {assign} from "@mxssfd/ts-utils";
-import MergeImg from "./index";
+import MergeImgs from "./index";
 
 let id = 0;
 
@@ -13,7 +13,7 @@ export abstract class Node {
     };
     public style: Style = {};
 
-    protected constructor(public parent: Node|MergeImg) {
+    protected constructor(public parent: Node|MergeImgs) {
         this.id = id++;
     }
 
@@ -22,9 +22,9 @@ export abstract class Node {
         this.computeStyle();
     }
 
-    get root(): MergeImg {
+    get root(): MergeImgs {
         const parent = this.parent;
-        if (parent instanceof MergeImg) {
+        if (parent instanceof MergeImgs) {
             return parent;
         }
         return (this.parent as Node).root;
@@ -65,7 +65,7 @@ export abstract class Node {
         let y: number = 0;
 
         const parent = this.parent;
-        const {width: w, height: h} = parent instanceof MergeImg ? parent : parent.computedStyle;
+        const {width: w, height: h} = parent instanceof MergeImgs ? parent : parent.computedStyle;
 
         dw = width as number || w;
         dh = height as number || h;
@@ -133,7 +133,7 @@ export abstract class Node {
             }
         }
 
-        if (!(parent instanceof MergeImg)) {
+        if (!(parent instanceof MergeImgs)) {
             const parentStyle = parent.computedStyle;
             x += parentStyle.left;
             y += parentStyle.top;

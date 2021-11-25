@@ -2,7 +2,7 @@ import {assign, createElement, insertToArray, loadImg} from "@mxssfd/ts-utils";
 import {Layer} from "./Layer";
 import {Style} from "./types";
 
-export default class MergeImg {
+export default class MergeImgs {
     private _ctx?: CanvasRenderingContext2D;
     private canvas?: HTMLCanvasElement;
     private readonly parent: Element;
@@ -58,11 +58,11 @@ export default class MergeImg {
     }
 
     // 根据背景图创建一个MergeImg类 好处是可以根据背景图宽高设置canvas宽高，不用再额外设置
-    static async createWithBg(url: string, crossOrigin: string | null = "anonymous"): Promise<MergeImg> {
+    static async createWithBg(url: string, crossOrigin: string | null = "anonymous"): Promise<MergeImgs> {
         // 如果图片crossOrigin不支持anonymous的话，也不支持导出图片，不过可以显示出canvas手动保存
         const promise = loadImg(url, {crossOrigin});
         const img = await promise;
-        const mi = new MergeImg(img.width, img.height);
+        const mi = new MergeImgs(img.width, img.height);
         await mi.addLayer().addImg(promise);
         return mi;
     }

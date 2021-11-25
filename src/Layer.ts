@@ -2,12 +2,12 @@ import {arrayRemoveItem, insertToArray, isImgElement, isNumber, isPromiseLike, l
 import {Node} from "./Node";
 import {ImgStyle, Style} from "./types";
 import {ImgElement} from "./ImgElement";
-import MergeImg from "./index";
+import MergeImgs from "./index";
 
 export class Layer extends Node {
     children: Node[] = [];
 
-    constructor(parent: MergeImg, public style: Style) {
+    constructor(parent: MergeImgs, public style: Style) {
         super(parent);
         this.setStyle(style);
     }

@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 <script src="../lib-umd/index.js"></script>
 <script>
-    (async function () {
-        const mi = await MergeImg.createWithBg(
-            "https://img1.baidu.com/it/u=1858952888,1085770291&fm=26&fmt=auto",
-        )
-        await mi.drawRoundRect(50);
-        const img = new Image()
-        img.src = mi.toDataURL();
-        document.body.append(img)
-        mi.destroy();
+(async function() {
+  const mi = await MergeImg.createWithBg(
+    "https://img1.baidu.com/it/u=1858952888,1085770291&fm=26&fmt=auto"
+  );
+  await mi.drawRoundRect(50);
+  // const img = new Image();
+  // img.src = mi.toDataURL();
+  // document.body.append(img);
+  // mi.destroy();
 
-        // 图片不支持toDataURL
-        const mi2 = await MergeImg.createWithBg(
-            "https://www.ivywise.com/core/wp-content/uploads/2019/04/Tips-for-taking-the-TOEFL.jpeg",
-            null
-        )
-        mi2.ctx.canvas.style.display = "block";
-    })()
+  // 图片不支持toDataURL
+  const mi2 = await MergeImg.createWithBg(
+    "https://www.ivywise.com/core/wp-content/uploads/2019/04/Tips-for-taking-the-TOEFL.jpeg",
+    null
+  );
+  const lr = mi2.addLayer();
+
+  lr.addImg(mi.toDataURL(), {horizontalAlign: "middle", verticalAlign: "middle", width: "auto", height: "auto"});
+
+  mi2.ctx.canvas.style.display = "block";
+})();
 </script>
 </body>
 </html>
